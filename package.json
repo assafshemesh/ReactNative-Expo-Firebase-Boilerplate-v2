@@ -2,7 +2,7 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "npx expo start",
+    "start": "npx expo start --tunnel",
     "android": "npx expo start --android",
     "ios": "npx expo start --ios",
     "eject": "expo eject",
@@ -11,6 +11,7 @@
     "test": "node_modules/.bin/jest --passWithNoTests"
   },
   "dependencies": {
+    "@expo/ngrok": "expo/ngrok",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^6.0.9",
