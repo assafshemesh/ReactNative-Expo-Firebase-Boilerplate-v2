@@ -7501,6 +7501,39 @@ expo-constants@~14.4.2:
     "@expo/config" "~8.1.0"
     uuid "^3.3.2"
 
+expo-dev-client@~2.4.6:
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/expo-dev-client/-/expo-dev-client-2.4.6.tgz#a9d18127f5ef812464ada60600b716d533bb8d57"
+  integrity sha512-oRectvtOh86HDf0fk7pjw0CahLRR2W75QkRDuXerLsUfzpbSg9KKm0kGuK3YZ+E6QpAo3FkXTkdAztDLYXCtTQ==
+  dependencies:
+    expo-dev-launcher "2.4.8"
+    expo-dev-menu "3.1.8"
+    expo-dev-menu-interface "1.3.0"
+    expo-manifests "~0.7.0"
+    expo-updates-interface "~0.10.0"
+
+expo-dev-launcher@2.4.8:
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/expo-dev-launcher/-/expo-dev-launcher-2.4.8.tgz#e7790e313e8d4eac8760f9c682872c3a7f17ce1a"
+  integrity sha512-OrCBtoTrFVYyXCzpw6QdJks4xJICdDO18VzlWT1JwJdSFFZ45nkKLzcEcMDTUM9/i2pqaJznPhs1upRaIK1sfA==
+  dependencies:
+    expo-dev-menu "3.1.8"
+    resolve-from "^5.0.0"
+    semver "^7.5.3"
+
+expo-dev-menu-interface@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/expo-dev-menu-interface/-/expo-dev-menu-interface-1.3.0.tgz#51b6be8c6e0ce73e414ac7a545998dfad0dfdb80"
+  integrity sha512-WtRP7trQ2lizJJTTFXUSGGn1deIeHaYej0sUynvu/uC69VrSP4EeSnYOxbmEO29kuT/MsQBMGu0P/AkMQOqCOg==
+
+expo-dev-menu@3.1.8:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/expo-dev-menu/-/expo-dev-menu-3.1.8.tgz#302dcc7c52a450550a8ba431971c31c51333921e"
+  integrity sha512-kNFmuzLQRDovP1tBj70h5mPaqPWHTl33q9kbCKHOZJujv9McHafUyOolU2vPB+wHk89VLYhwuwvKKarNzxft/w==
+  dependencies:
+    expo-dev-menu-interface "1.3.0"
+    semver "^7.5.3"
+
 expo-device@~5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/expo-device/-/expo-device-5.4.0.tgz#4dc4db4b2265d1f5c9d7c2be6548c375882be437"
@@ -12149,10 +12182,12 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react-native-dialog@^9.3.0:
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-dialog/-/react-native-dialog-9.3.0.tgz#9d745cc51653a1e2ae08076b46f11d99723c47f6"
-  integrity sha512-JEOJY/0AzTM9grIl0BL8o/IJPIJru7k5MPj9POTE9RRezUEtgn0YSvCpTlBtG0obWgOdzg2otMz1OQvMXS0wMQ==
+react-native-awesome-alerts@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-awesome-alerts/-/react-native-awesome-alerts-2.0.0.tgz#beb981ed50671c51fcd227c5bb6c58d4d493b681"
+  integrity sha512-ZRBNnDfpE+aQCtXXnQcfGLqwzZ53Q45CNkQI4hOiF8/9JPuCyMUQL2aqtiypnLpCIX+CB28Jcx1KVJ6/reaZsg==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-native-elements@^3.4.2:
   version "3.4.2"

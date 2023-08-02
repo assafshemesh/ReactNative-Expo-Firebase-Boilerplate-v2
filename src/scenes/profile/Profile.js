@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
 import { Avatar } from '@rneui/themed';
-import Dialog from "react-native-dialog"
+// import Dialog from "react-native-dialog"
+import AwesomeAlert from 'react-native-awesome-alerts';
 import Spinner from 'react-native-loading-spinner-overlay'
 import ScreenTemplate from '../../components/ScreenTemplate'
 import Button from '../../components/Button'
@@ -23,7 +24,7 @@ export default function Profile() {
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
   const colorScheme = {
-    text: isDark? colors.white : colors.primaryText
+    text: isDark ? colors.white : colors.primaryText
   }
 
   useEffect(() => {
@@ -36,13 +37,13 @@ export default function Profile() {
 
   const onSignOutPress = () => {
     signOut(auth)
-    .then(() => {
-      setUserData('')
-      Restart()
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
+      .then(() => {
+        setUserData('')
+        Restart()
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }
 
   const showDialog = () => {
@@ -64,17 +65,17 @@ export default function Profile() {
       deleteUser(user).then(() => {
         setSpinner(false)
         signOut(auth)
-        .then(() => {
-          console.log('user deleted')
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
+          .then(() => {
+            console.log('user deleted')
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
       }).catch((error) => {
         setSpinner(false)
         console.log(error)
       });
-    } catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
@@ -121,14 +122,35 @@ export default function Profile() {
           <Text onPress={onSignOutPress} style={styles.footerLink}>Sign out</Text>
         </View>
       </ScrollView>
-      <Dialog.Container visible={visible}>
+      {/* <Dialog.Container visible={visible}>
         <Dialog.Title>Account delete</Dialog.Title>
         <Dialog.Description>
           Do you want to delete this account? You cannot undo this action.
         </Dialog.Description>
         <Dialog.Button label="Cancel" onPress={handleCancel} />
         <Dialog.Button label="Delete" onPress={accountDelete} />
-      </Dialog.Container>
+      </Dialog.Container> */}
+
+      <AwesomeAlert
+        show={visible}
+        showProgress={false}
+        title="Account delete"
+        message="Do you want to delete this account? You cannot undo this action."
+        closeOnTouchOutside={true}
+        closeOnHardwareBackPress={false}
+        showCancelButton={true}
+        showConfirmButton={true}
+        cancelText="Cancel"
+        confirmText="Delete"
+        confirmButtonColor="#DD6B55"
+        onCancelPressed={() => {
+          handleCancel();
+        }}
+        onConfirmPressed={() => {
+          accountDelete();
+        }}
+      />
+
       <Spinner
         visible={spinner}
         textStyle={{ color: colors.white }}

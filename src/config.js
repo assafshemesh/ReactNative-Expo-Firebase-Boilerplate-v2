@@ -1,17 +1,17 @@
-const defaultAvatar = 'https://firebasestorage.googleapis.com/v0/b/expo-boilerplate-v2.appspot.com/o/icon.png?alt=media&token=505f30e6-6702-410a-84e7-f66b3ff60daf'
+const defaultAvatar = 'https://firebasestorage.googleapis.com/v0/b/xapp-4bc8b.appspot.com/o/avatar%2FIMG_9514.jpg?alt=media&token=6bdf6a7c-498e-4d6b-8543-7a8dfb649f5b'
 
 const firebaseKey = {
-  apiKey: "AIzaSyAbynvh81TkAmQE2lBY8JEDOVpNaHZOozU",
-  authDomain: "expo-boilerplate-v2.firebaseapp.com",
-  projectId: "expo-boilerplate-v2",
-  storageBucket: "expo-boilerplate-v2.appspot.com",
-  messagingSenderId: "852442919227",
-  appId: "1:852442919227:web:313aba2cd455b34701871e",
-  measurementId: "G-1894ZG59D5"
-}
+  apiKey: "AIzaSyAUNgI5a3leNOJ_3bfi6e3S7ZA0-URvqkw",
+  authDomain: "xapp-4bc8b.firebaseapp.com",
+  projectId: "xapp-4bc8b",
+  storageBucket: "xapp-4bc8b.appspot.com",
+  messagingSenderId: "322874024642",
+  appId: "1:322874024642:web:36ed27d442bea8c267115b",
+  measurementId: "G-TMGMLSRQBM"
+};
 
 const eulaLink = 'https://github.com/kiyohken2000/ReactNative-Expo-Firebase-Boilerplate-v2'
 
-const expoProjectId = '1650611b-a5b8-4420-9656-60c06429edd4'
+const expoProjectId = '4a84f443-0ba1-4823-8d2f-972b93539306'
 
 export { defaultAvatar, firebaseKey, eulaLink, expoProjectId }

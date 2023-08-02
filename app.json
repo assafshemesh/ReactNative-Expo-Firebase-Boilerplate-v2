@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "reactnative-expo-firebase-boilerplate-v2",
-    "slug": "reactnative-expo-firebase-boilerplate-v2",
-    "privacy": "public",
+    "name": "xapp-expo",
+    "slug": "xapp-expo",
+    "privacy": "private",
     "platforms": [
       "ios",
       "android",
@@ -19,6 +19,7 @@
     "updates": {
       "enabled": true,
       "fallbackToCacheTimeout": 10000,
+      "url": "https://u.expo.dev/4a84f443-0ba1-4823-8d2f-972b93539306"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -51,6 +52,14 @@
         "tsx"
       ]
     },
-    "description": ""
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "4a84f443-0ba1-4823-8d2f-972b93539306"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
