@@ -26,6 +26,7 @@ export default function RootStack() {
 
   useEffect(() => {
     (async () => {
+      // https://docs.expo.dev/push-notifications/push-notifications-setup/
       const isDevice = Device.isDevice
       if(!isDevice) return
       console.log('get push token')

@@ -2,7 +2,7 @@
   "expo": {
     "name": "xapp-expo",
     "slug": "xapp-expo",
-    "privacy": "private",
+    "privacy": "public",
     "platforms": [
       "ios",
       "android",
@@ -26,7 +26,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "reactnative.expo.firebase.boilerplate",
+      "bundleIdentifier": "com.xapp",
       "buildNumber": "1.0.0",
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "Use the photo library to change your avatar."
@@ -34,13 +34,14 @@
       "userInterfaceStyle": "automatic"
     },
     "android": {
-      "package": "reactnative.expo.firebase.boilerplate",
+      "package": "com.xapp",
       "versionCode": 1,
       "userInterfaceStyle": "automatic",
       "permissions": [
         "VIBRATE",
         "CAMERA"
-      ]
+      ],
+      "googleServicesFile": "./google-services.json"
     },
     "packagerOpts": {
       "config": "metro.config.js",
