@@ -2,13 +2,13 @@ import React, { useEffect, useContext } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import ScreenTemplate from '../../components/ScreenTemplate'
 import Button from '../../components/Button'
-import { colors, fontSize } from 'theme'
+import { colors, fontSize } from '../../theme'
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { UserDataContext } from '../../context/UserDataContext'
 import { useNavigation } from '@react-navigation/native'
 
 export default function Follow() {
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   const { userData } = useContext(UserDataContext)
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'

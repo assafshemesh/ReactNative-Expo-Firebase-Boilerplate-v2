@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 
-export const UserDataContext = createContext();
+export const UserDataContext = createContext(null);
 
 export const UserDataContextProvider = (props) => {
   const [userData, setUserData] = useState('')

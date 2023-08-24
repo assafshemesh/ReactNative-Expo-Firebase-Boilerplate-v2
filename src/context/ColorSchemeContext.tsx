@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react'
 import { useColorScheme } from 'react-native'
 
-export const ColorSchemeContext = createContext()
+export const ColorSchemeContext = createContext(null)
 
 export const ColorSchemeContextProvider = (props) => {
   const colorScheme = useColorScheme()

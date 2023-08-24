@@ -72,7 +72,7 @@ export default function Edit() {
           uploadTask.on('state_changed',
             (snapshot) => {
               let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              setProgress(parseInt(progress) + '%')
+              setProgress(parseInt(progress.toString()) + '%')
             },
             (error) => {
               console.log(error);

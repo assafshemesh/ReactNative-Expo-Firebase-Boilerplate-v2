@@ -18,7 +18,7 @@ import { auth } from '../../firebase/config'
 
 export default function Profile() {
   const { userData, setUserData } = useContext(UserDataContext)
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   const [visible, setVisible] = useState(false)
   const [spinner, setSpinner] = useState(false)
   const { scheme } = useContext(ColorSchemeContext)

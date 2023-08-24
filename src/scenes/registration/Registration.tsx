@@ -21,7 +21,7 @@ export default function Registration() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [spinner, setSpinner] = useState(false)
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
   const colorScheme = {

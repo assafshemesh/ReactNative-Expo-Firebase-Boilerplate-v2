@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function HeaderRightButton(props) {
   const { from, userData } = props
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
 
   const onButtonPress = () => {
     navigation.navigate('ModalStacks', {

@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 import ScreenTemplate from '../../components/ScreenTemplate'
 import Button from '../../components/Button'
 import { useRoute, useFocusEffect, useNavigation } from '@react-navigation/native'
-import { colors, fontSize } from 'theme'
+import { colors, fontSize } from '../../theme'
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { HomeTitleContext } from '../../context/HomeTitleContext'
 import { storage } from '../../utils/Storage'
@@ -11,11 +11,11 @@ import moment from 'moment'
 
 export default function Post() {
   const route = useRoute()
-  const { data, from } = route.params
+  const { data, from } = route.params as { data: any, from:string}; // TODO type of data
   const { scheme } = useContext(ColorSchemeContext)
-  const [date, setDate] = useState('')
+  const [date, setDate] = useState({date: ''});
   const { setTitle } = useContext(HomeTitleContext)
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   const isDark = scheme === 'dark'
   const colorScheme = {
     content: isDark? styles.darkContent:styles.lightContent,

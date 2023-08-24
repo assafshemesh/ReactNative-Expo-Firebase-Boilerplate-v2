@@ -6,11 +6,11 @@ import { ColorSchemeContextProvider } from './context/ColorSchemeContext'
 import { UserDataContextProvider } from './context/UserDataContext'
 
 // assets
-import { imageAssets } from 'theme/images'
-import { fontAssets } from 'theme/fonts'
+import { imageAssets } from './theme/images'
+import { fontAssets } from './theme/fonts'
 import Router from './routes'
 
-const isHermes = () => !!global.HermesInternal;
+const isHermes = () => !!(global as any).HermesInternal; // disable TS type checking
 
 const App = () => {
   // state

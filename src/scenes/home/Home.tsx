@@ -13,8 +13,13 @@ import { sendNotification } from '../../utils/SendNotification'
 import { getKilobyteSize } from '../../utils/functions'
 
 export default function Home() {
-  const navigation = useNavigation()
-  const [token, setToken] = useState('')
+  const navigation = useNavigation<any>()
+  type Token = {
+    id: String
+    token: string
+  }
+
+  const [token, setToken] = useState<Token>()
   const { userData } = useContext(UserDataContext)
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
@@ -67,7 +72,7 @@ export default function Home() {
     const tokenListner = onSnapshot(tokensRef, (querySnapshot) => {
       if (querySnapshot.exists) {
         const data = querySnapshot.data()
-        setToken(data)
+        setToken(data as Token)
       } else {
         console.log("No such document!");
       }
