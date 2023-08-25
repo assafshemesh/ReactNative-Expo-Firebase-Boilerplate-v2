@@ -1,16 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Platform } from "react-native";
-import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
-import TabNavigator from "../tabs/Tabs";
-import { ModalStacks } from "../stacks/ModalStacks/ModalStacks";
+import { View } from "react-native";
+import { createStackNavigator } from '@react-navigation/stack'
 import * as Notifications from 'expo-notifications'
 import { firestore } from "../../../firebase/config";
 import { setDoc, doc } from 'firebase/firestore';
 import { UserDataContext } from "../../../context/UserDataContext";
 import * as Device from 'expo-device';
 import { expoProjectId } from "../../../config";
+import Drawer from "../drawer";
+import DrawerNavigator from "../drawer/Drawer";
 
-const Stack = createStackNavigator()
+export const Stack = createStackNavigator()
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -22,7 +22,7 @@ Notifications.setNotificationHandler({
 
 export default function RootStack() {
   const { userData } = useContext(UserDataContext)
-  const isIos = Platform.OS === 'ios'
+  // const isIos = Platform.OS === 'ios'
 
   useEffect(() => {
     (async () => {
@@ -57,31 +57,9 @@ export default function RootStack() {
     return () => subscription.remove();
   }, []);
 
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false
-      }}
-    >
-      <Stack.Screen
-        name='HomeRoot'
-        component={TabNavigator}
-      />
-      <Stack.Group
-        screenOptions={{
-          presentation: 'modal',
-          headerShown: false,
-          gestureEnabled: true,
-          cardOverlayEnabled: true,
-          ...TransitionPresets.ModalPresentationIOS,
-          gestureEnabled: isIos
-        }}
-      >
-        <Stack.Screen
-          name='ModalStacks'
-          component={ModalStacks}
-        />
-      </Stack.Group>
-    </Stack.Navigator>
+  return (    
+    <DrawerNavigator />        
   )
 }
+
+

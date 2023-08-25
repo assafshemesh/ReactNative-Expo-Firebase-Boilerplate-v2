@@ -1,10 +1,11 @@
-import { colors } from 'theme'
+import { StackNavigationOptions } from '@react-navigation/stack'
+import { colors } from '../../../../theme'
 
 const headerTintColor = 'white'
 const fontSize = 18
 const headerMode = 'float'
 
-const lightProps = {
+const lightProps: StackNavigationOptions = {
   headerTintColor: headerTintColor,
   headerStyle: { 
     backgroundColor: colors.darkPurple
@@ -13,7 +14,7 @@ const lightProps = {
   headerMode: headerMode
 }
 
-const darkProps = {
+const darkProps: StackNavigationOptions = {
   headerTintColor: headerTintColor,
   headerStyle: { 
     backgroundColor: colors.dark

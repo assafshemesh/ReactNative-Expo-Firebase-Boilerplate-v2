@@ -11,6 +11,7 @@ import { UserDataContext } from '../../context/UserDataContext'
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { sendNotification } from '../../utils/SendNotification'
 import { getKilobyteSize } from '../../utils/functions'
+import DrawerNavigator from '../../routes/navigation/drawer/Drawer'
 
 export default function Home() {
   const navigation = useNavigation<any>()
@@ -49,19 +50,19 @@ export default function Home() {
     console.log({array, kilobyteSize});
   }, [])
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <IconButton
-          icon="align-right"
-          color={colors.lightPurple}
-          size={24}
-          onPress={() => headerButtonPress()}
-          containerStyle={{paddingRight: 15}}
-        />
-      ),
-    });
-  }, [navigation]);
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerRight: () => (
+  //       <IconButton
+  //         icon="align-right"
+  //         color={colors.lightPurple}
+  //         size={24}
+  //         onPress={() => headerButtonPress()}
+  //         containerStyle={{paddingRight: 15}}
+  //       />        
+  //     ),
+  //   });
+  // }, [navigation]);
 
   const headerButtonPress = () => {
     alert('Tapped header button')

@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
-import { colors } from 'theme'
+import { colors } from '../../../theme'
 
 // stack navigators
 import { HomeNavigator, ProfileNavigator, ConnectNavigator } from '../stacks'
@@ -11,26 +11,32 @@ const Tab = createBottomTabNavigator()
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      options={{
-        tabBarStyle: {
-          // backgroundColor: 'white',
-          // borderTopColor: 'gray',
-          // borderTopWidth: 1,
-          // paddingBottom: 5,
-          // paddingTop: 5,
-        }
-      }}
-      defaultScreenOptions={{
-        headerShown: false,
-        headerTransparent: true
-      }}
+      // options={{
+      //   tabBarStyle: {
+      //     // backgroundColor: 'white',
+      //     // borderTopColor: 'gray',
+      //     // borderTopWidth: 1,
+      //     // paddingBottom: 5,
+      //     // paddingTop: 5,
+      //   }
+      // }}
+
+      
+
+      // defaultScreenOptions={{
+      //   headerShown: false,
+      //   headerTransparent: true
+      // }}
       screenOptions={({ route }) => ({
         headerShown: false,
+        // headerTransparent: true,
         tabBarActiveTintColor: colors.lightPurple,
-        tabBarInactiveTintColor: colors.gray,
+        tabBarInactiveTintColor: colors.gray,        
       })}
       initialRouteName="HomeTab"
-      swipeEnabled={false}
+
+  
+      // swipeEnabled={false}
     >
       <Tab.Screen
         name="HomeTab"
