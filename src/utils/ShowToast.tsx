@@ -1,5 +1,6 @@
-import Toast, { BaseToast, ErrorToast } from 'react-native-toast-message';
+import Toast, { BaseToast, ErrorToast, ToastConfig } from 'react-native-toast-message';
 import { fontSize, colors } from '../theme';
+import { View, Text } from 'react-native';
 
 const showToast = ({title, body, isDark}) => {
   Toast.show({
@@ -12,7 +13,7 @@ const showToast = ({title, body, isDark}) => {
   });
 }
 
-const toastConfig = {
+const toastConfig : ToastConfig= {
   /*
     Overwrite 'success' type,
     by modifying the existing `BaseToast` component

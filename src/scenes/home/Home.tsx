@@ -11,7 +11,7 @@ import { UserDataContext } from '../../context/UserDataContext'
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { sendNotification } from '../../utils/SendNotification'
 import { getKilobyteSize } from '../../utils/functions'
-import DrawerNavigator from '../../routes/navigation/drawer/Drawer'
+import StringsOfLanguages from '../../utils/localization'
 
 export default function Home() {
   const navigation = useNavigation<any>()
@@ -105,9 +105,10 @@ export default function Home() {
           }
         </View>
         <Button
-          label='Go to Detail'
+          //label='Go to Detail'
+          label={StringsOfLanguages.t('Go to Detail')}
           color={colors.primary}
-          onPress={() => navigation.navigate('Detail', { userData: userData, from: 'Home', title: userData.email })}
+          onPress={() => navigation.navigate(StringsOfLanguages.t("Detail"), { userData: userData, from: 'Home', title: userData.email })}
         />
         <Button
           label='Open Modal'

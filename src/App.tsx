@@ -9,6 +9,7 @@ import { UserDataContextProvider } from './context/UserDataContext'
 import { imageAssets } from './theme/images'
 import { fontAssets } from './theme/fonts'
 import Router from './routes'
+import { setLanguage } from './utils/localization'
 
 const isHermes = () => !!(global as any).HermesInternal; // disable TS type checking
 
@@ -16,6 +17,10 @@ const App = () => {
   // state
   const [didLoad, setDidLoad] = useState(false)
   console.log('isHermes', isHermes())
+
+  useEffect(() => {
+    setLanguage('he', true);
+  })
 
   // handler
   const handleLoadAssets = async () => {

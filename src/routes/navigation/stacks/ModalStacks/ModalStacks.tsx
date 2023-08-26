@@ -30,6 +30,7 @@ export const ModalStacks = () => {
               options={{
                 title: ctx.title,
                 headerBackTitle: '',
+                // headerBackTitleVisible: true
               }}
             />
             <Stack.Screen

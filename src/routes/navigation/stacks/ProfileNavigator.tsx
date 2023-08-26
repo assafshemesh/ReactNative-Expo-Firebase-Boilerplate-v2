@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { ColorSchemeContext } from '../../../context/ColorSchemeContext'
-import { lightProps, darkProps } from './navigationProps/navigationProps'
 import HeaderStyle from './headerComponents/HeaderStyle'
 
 import Profile from '../../../scenes/profile'
@@ -12,9 +11,8 @@ const RootStack = createStackNavigator()
 
 export const ProfileNavigator = () => {
   const { scheme } = useContext(ColorSchemeContext)
-  const navigationProps = scheme === 'dark' ? darkProps:lightProps
   return (
-    <Stack.Navigator screenOptions={navigationProps}>
+    <Stack.Navigator screenOptions={{}}>
       <RootStack.Group>
         <Stack.Screen
           name="Profile"

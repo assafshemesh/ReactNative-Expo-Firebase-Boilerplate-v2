@@ -1,4 +1,4 @@
-import { colors } from 'theme'
+import { colors } from '../../../../theme'
 import { Platform } from 'react-native'
 
 const labelSize = Platform.select({

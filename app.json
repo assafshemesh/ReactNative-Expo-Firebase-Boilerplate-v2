@@ -57,10 +57,14 @@
     "extra": {
       "eas": {
         "projectId": "4a84f443-0ba1-4823-8d2f-972b93539306"
-      }
+      },
+      "supportsRTL": true
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
-    }
+    },
+    "plugins": [
+      "expo-localization"
+    ]
   }
 }

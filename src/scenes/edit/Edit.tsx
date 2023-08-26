@@ -10,7 +10,7 @@ import { Avatar } from '@rneui/themed';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import * as ImagePicker from 'expo-image-picker'
 import * as ImageManipulator from 'expo-image-manipulator'
-import { useNavigation } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { colors, fontSize } from '../../theme'
 import { UserDataContext } from '../../context/UserDataContext'
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
@@ -18,6 +18,7 @@ import { updatePassword, EmailAuthProvider, reauthenticateWithCredential } from 
 import { auth } from '../../firebase/config'
 import { showToast } from '../../utils/ShowToast'
 import Spinner from 'react-native-loading-spinner-overlay'
+import { HomeTitleContext } from '../../context/HomeTitleContext'
 
 export default function Edit() {
   const { userData } = useContext(UserDataContext)
@@ -35,10 +36,14 @@ export default function Edit() {
     text: isDark? colors.white : colors.primaryText,
     progress: isDark? styles.darkprogress : styles.progress,
   }
-
+  const { setTitle } = useContext(HomeTitleContext)
   useEffect(() => {
     console.log('Edit screen')
   }, [])
+
+  useFocusEffect(() => {
+    setTitle(`Edit ${fullName}`);
+  });
 
   const ImageChoiceAndUpload = async () => {
     try {
