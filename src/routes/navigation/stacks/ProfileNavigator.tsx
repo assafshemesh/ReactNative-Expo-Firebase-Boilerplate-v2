@@ -17,16 +17,16 @@ export const ProfileNavigator = () => {
         <Stack.Screen
           name="Profile"
           component={Profile}
-          options={({ navigation }) => ({
-            headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
-          })}
+          // options={({ navigation }) => ({
+          //   headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
+          // })}
         />
         <Stack.Screen
           name="Edit"
           component={Edit}
-          options={({ navigation }) => ({
-            headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
-          })}
+          // options={({ navigation }) => ({
+          //   headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
+          // })}
         />
       </RootStack.Group>
     </Stack.Navigator>

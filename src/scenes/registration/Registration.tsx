@@ -14,6 +14,7 @@ import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { defaultAvatar, eulaLink } from '../../config'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config'
+import StringsOfLanguages from '../../utils/localization';
 
 export default function Registration() {
   const [fullName, setFullName] = useState('')
@@ -33,7 +34,7 @@ export default function Registration() {
   }, [])
 
   const onFooterLinkPress = () => {
-    navigation.navigate('Login')
+    navigation.navigate(StringsOfLanguages.t('Login'))
   }
 
   const onRegisterPress = async() => {

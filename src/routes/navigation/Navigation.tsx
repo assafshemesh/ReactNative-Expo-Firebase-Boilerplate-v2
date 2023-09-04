@@ -9,10 +9,15 @@ import { toastConfig } from '../../utils/ShowToast'
 
 import { LoginNavigator } from './stacks'
 import RootStack from './rootstack/RootStack'
+import { setLanguage } from '../../utils/localization'
 
 export default function App() {
   const { scheme } = useContext(ColorSchemeContext)
   const { userData } = useContext(UserDataContext)
+
+  useEffect(() => {
+    setLanguage('he', true);
+  })
 
   return (
     <>

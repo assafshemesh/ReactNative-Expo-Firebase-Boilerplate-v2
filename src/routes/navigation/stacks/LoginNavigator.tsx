@@ -6,6 +6,7 @@ import HeaderStyle from './headerComponents/HeaderStyle'
 
 import Login from '../../../scenes/login'
 import Registration from '../../../scenes/registration'
+import StringsOfLanguages from '../../../utils/localization'
 
 const Stack = createStackNavigator()
 
@@ -15,18 +16,18 @@ export const LoginNavigator = () => {
   return (
     <Stack.Navigator screenOptions={navigationProps}>
       <Stack.Screen
-        name="Login"
+        name={StringsOfLanguages.t("Login")}
         component={Login}
-        options={({ navigation }) => ({
-          headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
-        })}
+        // options={({ navigation }) => ({
+        //   headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
+        // })}
       />
       <Stack.Screen
-        name="Registration"
+        name={StringsOfLanguages.t("Registration")}
         component={Registration}
-        options={({ navigation }) => ({
-          headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
-        })}
+        // options={({ navigation }) => ({
+        //   headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
+        // })}
       />
     </Stack.Navigator>
   )

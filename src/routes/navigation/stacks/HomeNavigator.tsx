@@ -27,16 +27,16 @@ export const HomeNavigator = () => {
             <Stack.Screen
               name="Home"
               component={Home}
-              options={({ navigation }) => ({
-                headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
-              })}
+              // options={({ navigation }) => ({
+              //   headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
+              // })}
             />
             <Stack.Screen
               name="Detail"
               component={Detail}
               options={{ 
                 title: ctx.title,
-                headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
+                //headerBackground: scheme === 'dark' ? null: () => <HeaderStyle />,
               }}
             />
           </Stack.Navigator>

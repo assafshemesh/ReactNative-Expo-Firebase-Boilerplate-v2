@@ -30,7 +30,7 @@ const DrawerNavigator = () => {
         {(ctx) => (
           <GestureHandlerRootView style={{ flex: 1 }} >
             <Drawer.Navigator initialRouteName="Home"
-            screenOptions={navigationProps}          
+            screenOptions={navigationProps}     
 
             // screenOptions={{
             //   headerRight: LanguageSelector(),

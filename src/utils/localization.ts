@@ -8,13 +8,16 @@ const StringsOfLanguages = new I18n({
         home: 'Home',
         'Go to Detail': 'Go to Detail',
         Detail: 'Detail',
-
+        Login: 'Login',
+        Registration: 'Registration',
     },
     he: {
         direction: 'rtl',
         home: 'בית',
         'Go to Detail': 'למסך פרטים',
         Detail: 'פרטים',
+        Login: 'כניסה למערכת',
+        Registration: 'הרשמה',
     },
 });
 

@@ -14,6 +14,7 @@ import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { LogBox } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebase/config'
+import StringsOfLanguages from '../../utils/localization';
 
 // To ignore a useless warning in terminal.
 // https://stackoverflow.com/questions/44603362/setting-a-timer-for-a-long-period-of-time-i-e-multiple-minutes
@@ -23,22 +24,22 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [spinner, setSpinner] = useState(false)
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   const { scheme } = useContext(ColorSchemeContext)
   const isDark = scheme === 'dark'
   const colorScheme = {
-    text: isDark? colors.white : colors.primaryText
+    text: isDark ? colors.white : colors.primaryText
   }
 
   const onFooterLinkPress = () => {
-    navigation.navigate('Registration')
+    navigation.navigate(StringsOfLanguages.t("Registration"))
   }
 
-  useEffect(() => {
-    console.log('Login screen, ログイン画面')
-  }, [])
+  // useEffect(() => {
+  //   console.log('Login screen, ログイン画面')
+  // }, [])
 
-  const onLoginPress = async() => {
+  const onLoginPress = async () => {
     try {
       setSpinner(true)
       const response = await signInWithEmailAndPassword(auth, email, password)
@@ -50,7 +51,7 @@ export default function Login() {
         alert("User does not exist anymore.")
         return;
       }
-    } catch(error) {
+    } catch (error) {
       setSpinner(false)
       alert(error)
     }

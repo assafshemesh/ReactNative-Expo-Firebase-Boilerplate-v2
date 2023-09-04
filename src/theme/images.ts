@@ -1,16 +1,18 @@
 import { Asset } from 'expo-asset'
 
 // svg
-import Logo from '../../assets/images/logo.svg'
+// import Logo from '../../assets/images/xapp-logo.svg';
 
-export const svgs = {
-  logo: Logo,
-}
+// export const svgs = {
+//   logo: require('../../assets/images/xapp-logo.svg'),
+// }
 
 // png/jpeg
 export const images = {
   logo_sm: require('../../assets/images/logo-sm.png'),
   logo_lg: require('../../assets/images/logo-lg.png'),
+
+  logo: require('../../assets/images/xapp-logo.svg'),
 }
 
 // image preloading
