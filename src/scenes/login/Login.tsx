@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, ImageBackground } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import ScreenTemplate from '../../components/ScreenTemplate';
 import Button from '../../components/Button'
@@ -9,7 +9,7 @@ import { firestore } from '../../firebase/config'
 import { doc, getDoc } from 'firebase/firestore';
 import Spinner from 'react-native-loading-spinner-overlay'
 import { useNavigation } from '@react-navigation/native'
-import { colors, fontSize } from '../../theme';
+import { Themes, colors, fontSize, images } from '../../theme';
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { LogBox } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth'
@@ -26,10 +26,12 @@ export default function Login() {
   const [spinner, setSpinner] = useState(false)
   const navigation = useNavigation<any>()
   const { scheme } = useContext(ColorSchemeContext)
-  const isDark = scheme === 'dark'
-  const colorScheme = {
-    text: isDark ? colors.white : colors.primaryText
-  }
+  //const isDark = scheme === 'dark'
+  // const colorScheme = {
+  //   text: isDark ? colors.white : colors.primaryText
+  // }
+  const theme = Themes.current(scheme);
+
 
   const onFooterLinkPress = () => {
     navigation.navigate(StringsOfLanguages.t("Registration"))
@@ -59,39 +61,41 @@ export default function Login() {
 
   return (
     <ScreenTemplate>
-      <KeyboardAwareScrollView
-        style={styles.main}
-        keyboardShouldPersistTaps="always"
-      >
-        <Logo />
-        <TextInputBox
-          placeholder='E-mail'
-          onChangeText={(text) => setEmail(text)}
-          autoCapitalize="none"
-          value={email}
-          keyboardType={'email-address'}
+      <ImageBackground source={images.login_bg} style={styles.image}>
+        <KeyboardAwareScrollView
+          style={styles.main}
+          keyboardShouldPersistTaps="always"
+        >
+          <Logo />
+          <TextInputBox
+            placeholder='E-mail'
+            onChangeText={(text) => setEmail(text)}
+            autoCapitalize="none"
+            value={email}
+            keyboardType={'email-address'}
+          />
+          <TextInputBox
+            secureTextEntry={true}
+            placeholder='Password'
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            autoCapitalize="none"
+          />
+          <Button
+            label='Log in'
+            color={colors.primary}
+            onPress={() => onLoginPress()}
+          />
+          <View style={styles.footerView}>
+            <Text style={[styles.footerText, { color: theme.textColor }]}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
+          </View>
+        </KeyboardAwareScrollView>
+        <Spinner
+          visible={spinner}
+          textStyle={{ color: colors.white }}
+          overlayColor="rgba(0,0,0,0.5)"
         />
-        <TextInputBox
-          secureTextEntry={true}
-          placeholder='Password'
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          autoCapitalize="none"
-        />
-        <Button
-          label='Log in'
-          color={colors.primary}
-          onPress={() => onLoginPress()}
-        />
-        <View style={styles.footerView}>
-          <Text style={[styles.footerText, { color: colorScheme.text }]}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
-        </View>
-      </KeyboardAwareScrollView>
-      <Spinner
-        visible={spinner}
-        textStyle={{ color: colors.white }}
-        overlayColor="rgba(0,0,0,0.5)"
-      />
+      </ImageBackground>
     </ScreenTemplate>
   )
 }
@@ -114,5 +118,10 @@ const styles = StyleSheet.create({
     color: colors.blueLight,
     fontWeight: "bold",
     fontSize: fontSize.large
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
   },
 })

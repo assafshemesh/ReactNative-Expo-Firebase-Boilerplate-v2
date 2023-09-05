@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Text, StyleSheet, View, Linking } from 'react-native'
+import { Text, StyleSheet, View, Linking, ImageBackground } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import ScreenTemplate from '../../components/ScreenTemplate';
 import TextInputBox from '../../components/TextInputBox';
@@ -9,7 +9,7 @@ import { firestore } from '../../firebase/config'
 import { setDoc, doc } from 'firebase/firestore';
 import Spinner from 'react-native-loading-spinner-overlay'
 import { useNavigation } from '@react-navigation/native'
-import { colors, fontSize } from '../../theme';
+import { Themes, colors, fontSize, images } from '../../theme';
 import { ColorSchemeContext } from '../../context/ColorSchemeContext'
 import { defaultAvatar, eulaLink } from '../../config'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -24,10 +24,11 @@ export default function Registration() {
   const [spinner, setSpinner] = useState(false)
   const navigation = useNavigation<any>()
   const { scheme } = useContext(ColorSchemeContext)
-  const isDark = scheme === 'dark'
-  const colorScheme = {
-    text: isDark? colors.white : colors.primaryText
-  }
+  //const isDark = scheme === 'dark'
+  // const colorScheme = {
+  //   text: isDark? colors.white : colors.primaryText
+  // }
+  const theme = Themes.current(scheme);
 
   useEffect(() => {
     console.log('Registration screen')
@@ -62,6 +63,7 @@ export default function Registration() {
 
   return (
     <ScreenTemplate>
+      <ImageBackground source={images.login_bg} style={styles.image}>
       <KeyboardAwareScrollView
         style={styles.main}
         keyboardShouldPersistTaps="always"
@@ -100,15 +102,16 @@ export default function Registration() {
           onPress={() => onRegisterPress()}
         />
         <View style={styles.footerView}>
-          <Text style={[styles.footerText, {color: colorScheme.text}]}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
+          <Text style={[styles.footerText, {color: theme.textColor}]}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
         </View>
-        <Text style={[styles.link, {color: colorScheme.text}]} onPress={ ()=>{ Linking.openURL(eulaLink)}}>Require agree <Text style={styles.eulaLink}>EULA</Text></Text>
+        <Text style={[styles.link, {color: theme.textColor}]} onPress={ ()=>{ Linking.openURL(eulaLink)}}>Require agree <Text style={styles.eulaLink}>EULA</Text></Text>
       </KeyboardAwareScrollView>
       <Spinner
         visible={spinner}
         textStyle={{ color: colors.white }}
         overlayColor="rgba(0,0,0,0.5)"
       />
+      </ImageBackground>
     </ScreenTemplate>
   )
 }
@@ -138,5 +141,10 @@ const styles = StyleSheet.create({
   eulaLink: {
     color: colors.blueLight,
     fontSize: fontSize.middle
-  }
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
 })

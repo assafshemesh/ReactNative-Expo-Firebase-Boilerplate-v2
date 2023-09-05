@@ -13,6 +13,7 @@ export const images = {
   logo_lg: require('../../assets/images/logo-lg.png'),
 
   logo: require('../../assets/images/xapp-logo.svg'),
+  login_bg: require('../../assets/images/login-bg.jpg'),
 }
 
 // image preloading

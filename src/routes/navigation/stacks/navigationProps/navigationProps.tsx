@@ -25,7 +25,7 @@ const lightProps: DrawerNavigationOptions = {
     )
   },
   headerTitleStyle: { fontSize: fontSize },
-  //headerMode: headerMode,
+  headerMode: headerMode,
 }
 
 const darkProps: DrawerNavigationOptions = {
@@ -40,7 +40,7 @@ const darkProps: DrawerNavigationOptions = {
     )
   },
   headerTitleStyle: { fontSize: fontSize },
-  // headerMode: headerMode
+  headerMode: headerMode
 }
 
 export { lightProps, darkProps }
